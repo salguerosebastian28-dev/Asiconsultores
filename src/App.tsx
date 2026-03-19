@@ -26,7 +26,9 @@ import {
   MessageCircle,
   ArrowRight,
   Target,
-  Eye
+  Eye,
+  Linkedin,
+  Instagram
 } from 'lucide-react';
 
 const COLORS = {
@@ -472,6 +474,26 @@ const Navbar = ({ onPageChange, currentPage }: { onPageChange: (page: string) =>
                 </a>
               );
             })}
+            
+            <div className="flex items-center space-x-4 border-l border-white/10 pl-6 ml-2">
+              <a 
+                href="https://www.instagram.com/asiconsultores/" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className={`transition-all hover:scale-110 ${scrolled ? 'text-black/50 hover:text-black' : 'text-white/50 hover:text-white'}`}
+              >
+                <Instagram className="w-5 h-5" />
+              </a>
+              <a 
+                href="https://www.linkedin.com/in/asi-consultores-ltda-35a786370/" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className={`transition-all hover:scale-110 ${scrolled ? 'text-black/50 hover:text-black' : 'text-white/50 hover:text-white'}`}
+              >
+                <Linkedin className="w-5 h-5" />
+              </a>
+            </div>
+
             <a 
               href="#contacto" 
               onClick={(e) => handleNavClick(e, 'home', 'contacto')}
@@ -504,6 +526,25 @@ const Navbar = ({ onPageChange, currentPage }: { onPageChange: (page: string) =>
             <a href="#contacto" onClick={(e) => handleNavClick(e, 'home', 'contacto')} className="block bg-black text-white px-6 py-4 rounded-2xl font-semibold text-center text-lg">
               Contacto
             </a>
+            
+            <div className="pt-6 border-t border-black/5 flex justify-center gap-8">
+              <a 
+                href="https://www.instagram.com/asiconsultores/" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="w-14 h-14 rounded-2xl bg-black/5 flex items-center justify-center text-black hover:bg-[#c5a059] hover:text-white transition-all"
+              >
+                <Instagram className="w-7 h-7" />
+              </a>
+              <a 
+                href="https://www.linkedin.com/in/asi-consultores-ltda-35a786370/" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="w-14 h-14 rounded-2xl bg-black/5 flex items-center justify-center text-black hover:bg-[#c5a059] hover:text-white transition-all"
+              >
+                <Linkedin className="w-7 h-7" />
+              </a>
+            </div>
           </motion.div>
         )}
       </AnimatePresence>
@@ -1191,6 +1232,31 @@ const Contact = () => {
                   <ArrowRight className="w-5 h-5 ml-auto opacity-0 group-hover:opacity-100 group-hover:translate-x-2 transition-all text-[#25D366]" />
                 </motion.a>
               ))}
+
+              <div className="pt-8 flex gap-6">
+                <motion.a
+                  href="https://www.instagram.com/asiconsultores/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  initial={{ opacity: 0, scale: 0.8 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  whileHover={{ scale: 1.1, y: -5 }}
+                  className="w-16 h-16 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center text-white hover:bg-[#c5a059] hover:border-[#c5a059] transition-all duration-500"
+                >
+                  <Instagram className="w-8 h-8" />
+                </motion.a>
+                <motion.a
+                  href="https://www.linkedin.com/in/asi-consultores-ltda-35a786370/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  initial={{ opacity: 0, scale: 0.8 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  whileHover={{ scale: 1.1, y: -5 }}
+                  className="w-16 h-16 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center text-white hover:bg-[#c5a059] hover:border-[#c5a059] transition-all duration-500"
+                >
+                  <Linkedin className="w-8 h-8" />
+                </motion.a>
+              </div>
             </div>
           </motion.div>
 
@@ -1301,9 +1367,25 @@ const Footer = () => {
           <p className="text-xs text-gray-600 font-medium">
             © {new Date().getFullYear()} ASI Consultores. Todos los derechos reservados.
           </p>
+          <div className="flex gap-6">
+            <a 
+              href="https://www.instagram.com/asiconsultores/" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="text-gray-600 hover:text-[#c5a059] transition-colors"
+            >
+              <Instagram className="w-5 h-5" />
+            </a>
+            <a 
+              href="https://www.linkedin.com/in/asi-consultores-ltda-35a786370/" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="text-gray-600 hover:text-[#c5a059] transition-colors"
+            >
+              <Linkedin className="w-5 h-5" />
+            </a>
+          </div>
           <div className="flex gap-6 text-xs text-gray-600">
-            <span className="hover:text-gray-400 cursor-pointer">LinkedIn</span>
-            <span className="hover:text-gray-400 cursor-pointer">Instagram</span>
           </div>
         </div>
       </div>
