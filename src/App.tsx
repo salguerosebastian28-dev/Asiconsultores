@@ -1,6 +1,6 @@
 /**
- * @license
- * SPDX-License-Identifier: Apache-2.0
+ * ASI Consultores Abogados - Plataforma Web Institucional
+ * @license Apache-2.0
  */
 
 import React, { useState, useRef, Suspense, useEffect } from 'react';

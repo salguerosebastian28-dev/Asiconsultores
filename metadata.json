@@ -1,6 +1,6 @@
 {
   "name": "ASI Consultores - Servicios Legales",
-  "description": "Sitio web profesional para consultoría legal y empresarial con Justinna, tu asesora virtual.",
+  "description": "Sitio web oficial y profesional de consultoría jurídica, seguros y gestión inmobiliaria de ASI Consultores Abogados.",
   "requestFramePermissions": [],
   "majorCapabilities": [
     "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
