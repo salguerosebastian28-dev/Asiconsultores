@@ -10,6 +10,12 @@ import { LegalContactForm } from './components/LegalContactForm';
 import heroBg from './assets/images/asi_lawyers_hero_hd_1784786185757.jpg';
 import modernLawyersHero from './assets/images/modern_lawyers_hero_1784821329117.jpg';
 import teamImg from './assets/images/modern_lawyers_team_1784774266222.jpg';
+import modernFirmIdentity from './assets/images/modern_firm_identity_1784828879918.jpg';
+import slideExcelencia from './assets/images/excelencia_juridica_slide_1784829062614.jpg';
+import slideCompromiso from './assets/images/compromiso_absoluto_slide_1784829077854.jpg';
+import slideEstrategia from './assets/images/vision_estrategica_slide_1784829089858.jpg';
+import slideResultados from './assets/images/resultados_concretos_slide_1784829104025.jpg';
+import slideNacional from './assets/images/presencia_nacional_slide_1784829116979.jpg';
 import { 
   Shield, 
   Gavel, 
@@ -230,8 +236,8 @@ const WhoWeAre = ({ onContactClick }: { onContactClick: () => void }) => {
               <div className="relative p-2 rounded-[3rem] bg-white/5 backdrop-blur-md border border-white/10 shadow-2xl overflow-hidden group">
                 <div className="relative rounded-[2.5rem] overflow-hidden aspect-[4/5]">
                   <img 
-                    src="https://images.unsplash.com/photo-1589829545856-d10d557cf95f?auto=format&fit=crop&q=80&w=1200" 
-                    alt="Nuestro Equipo" 
+                    src={modernFirmIdentity} 
+                    alt="ASI Consultores - Firma de Abogados Era Moderna" 
                     className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105"
                     referrerPolicy="no-referrer"
                   />
@@ -589,110 +595,174 @@ const Navbar = ({ onPageChange, currentPage }: { onPageChange: (page: string) =>
 
 const ValueSlider = () => {
   const [current, setCurrent] = useState(0);
+  const [isPaused, setIsPaused] = useState(false);
+
   const phrases = [
     {
+      id: "01",
+      tag: "VALORES INSTITUCIONALES",
       title: "Excelencia Jurídica",
-      text: "Combinamos rigor académico con una visión estratégica para proteger sus intereses."
+      text: "Combinamos rigor académico con una visión estratégica para proteger sus intereses.",
+      image: slideExcelencia
     },
     {
+      id: "02",
+      tag: "ÉTICTOR Y CONFIANZA",
       title: "Compromiso Absoluto",
-      text: "Su tranquilidad es nuestra prioridad. Defendemos cada caso con pasión y ética."
+      text: "Su tranquilidad es nuestra prioridad. Defendemos cada caso con pasión y ética.",
+      image: slideCompromiso
     },
     {
+      id: "03",
+      tag: "INNOVACIÓN LEGAL",
       title: "Visión Estratégica",
-      text: "Anticipamos escenarios para ofrecer soluciones legales innovadoras y efectivas."
+      text: "Anticipamos escenarios para ofrecer soluciones legales innovadoras y efectivas.",
+      image: slideEstrategia
     },
     {
+      id: "04",
+      tag: "EVALUACIÓN Y ÉXITO",
       title: "Resultados Concretos",
-      text: "Nuestra trayectoria de éxito respalda la calidad de nuestra consultoría jurídica."
+      text: "Nuestra trayectoria de éxito respalda la calidad de nuestra consultoría jurídica.",
+      image: slideResultados
     },
     {
+      id: "05",
+      tag: "COBERTURA NACIONAL",
       title: "Presencia Nacional",
-      text: "Brindamos asesoría integral en todas las regiones del territorio colombiano."
+      text: "Brindamos asesoría integral en todas las regiones del territorio colombiano.",
+      image: slideNacional
     }
   ];
 
   useEffect(() => {
+    if (isPaused) return;
     const timer = setInterval(() => {
       setCurrent((prev) => (prev + 1) % phrases.length);
-    }, 4000);
+    }, 5000);
     return () => clearInterval(timer);
-  }, [phrases.length]);
+  }, [phrases.length, isPaused]);
 
   const next = () => setCurrent((prev) => (prev + 1) % phrases.length);
   const prev = () => setCurrent((prev) => (prev - 1 + phrases.length) % phrases.length);
 
   return (
-    <div className="relative w-full h-full flex items-center justify-center">
-      <motion.div 
-        initial={{ opacity: 0, scale: 0.8 }}
-        animate={{ opacity: 1, scale: 1 }}
-        transition={{ duration: 4, ease: [0.2, 0, 0, 1] }}
-        className="absolute inset-0 bg-[#DF871B]/10 rounded-full blur-[100px]" 
-      />
-      
-      <motion.div 
-        initial={{ 
-          backgroundColor: 'rgba(255, 255, 255, 0)', 
-          borderColor: 'rgba(255, 255, 255, 0)',
-          backdropFilter: 'blur(0px)',
-          scale: 0.95
-        }}
-        animate={{ 
-          backgroundColor: 'rgba(13, 30, 58, 0.4)', 
-          borderColor: 'rgba(223, 135, 27, 0.4)',
-          backdropFilter: 'blur(20px)',
-          scale: 1
-        }}
-        transition={{ duration: 4, ease: [0.2, 0, 0, 1] }}
-        className="relative z-10 w-full max-w-md h-[320px] rounded-[3rem] border-2 shadow-[0_50px_100px_-20px_rgba(7,19,36,0.8),0_0_60px_rgba(223,135,27,0.25)] overflow-hidden group"
-      >
-        <AnimatePresence mode="sync">
+    <div 
+      className="relative w-full h-full flex items-center justify-center px-2"
+      onMouseEnter={() => setIsPaused(true)}
+      onMouseLeave={() => setIsPaused(false)}
+    >
+      {/* Background Soft Glow */}
+      <div className="absolute inset-0 bg-[#DF871B]/15 rounded-full blur-[120px] pointer-events-none" />
+
+      {/* Main Modern Carousel Container */}
+      <div className="relative z-10 w-full max-w-4xl h-[420px] md:h-[480px] rounded-[2.5rem] md:rounded-[3.5rem] border-2 border-[#DF871B]/30 shadow-[0_50px_120px_-20px_rgba(7,19,36,0.9),0_0_80px_rgba(223,135,27,0.3)] overflow-hidden group bg-[#0D1E3A]">
+        
+        {/* Animated Background Image for current slide */}
+        <AnimatePresence mode="wait">
           <motion.div
-            key={current}
-            initial={{ opacity: 0, filter: 'blur(20px)', y: 20 }}
-            animate={{ opacity: 1, filter: 'blur(0px)', y: 0 }}
-            exit={{ opacity: 0, filter: 'blur(20px)', y: -20 }}
-            transition={{ duration: 1.5, ease: [0.16, 1, 0.3, 1] }}
-            className="absolute inset-0 flex flex-col items-center justify-center p-12 text-center"
+            key={`img-${current}`}
+            initial={{ opacity: 0, scale: 1.15 }}
+            animate={{ opacity: 1, scale: 1.03 }}
+            exit={{ opacity: 0, scale: 1 }}
+            transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
+            className="absolute inset-0 z-0 overflow-hidden"
           >
-            <motion.h3 
-              className="text-[#DF871B] text-3xl font-black mb-6 tracking-tighter"
-            >
-              {phrases[current].title}
-            </motion.h3>
-            <motion.p 
-              className="text-white text-lg leading-relaxed font-medium italic opacity-90"
-            >
-              "{phrases[current].text}"
-            </motion.p>
+            <img 
+              src={phrases[current].image} 
+              alt={phrases[current].title}
+              className="w-full h-full object-cover object-center filter brightness-90 contrast-105"
+              referrerPolicy="no-referrer"
+            />
+            {/* Dark gradient overlay for text readability */}
+            <div className="absolute inset-0 bg-gradient-to-t from-[#071324] via-[#0B1A30]/70 to-[#0B1A30]/40" />
+            <div className="absolute inset-0 bg-gradient-to-r from-[#071324]/90 via-[#0B1A30]/50 to-transparent" />
           </motion.div>
         </AnimatePresence>
 
-        {/* Navigation Arrows */}
+        {/* Top Header Tag & Counter */}
+        <div className="absolute top-6 left-6 right-6 z-20 flex items-center justify-between pointer-events-none">
+          <div className="flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-black/40 backdrop-blur-md border border-white/10 text-[11px] font-bold text-[#DF871B] uppercase tracking-widest">
+            <span className="w-2 h-2 rounded-full bg-[#DF871B] animate-pulse" />
+            {phrases[current].tag}
+          </div>
+
+          <div className="px-3.5 py-1.5 rounded-full bg-black/40 backdrop-blur-md border border-white/10 text-[11px] font-mono font-bold text-white tracking-widest">
+            {phrases[current].id} <span className="text-white/40">/</span> 05
+          </div>
+        </div>
+
+        {/* Text Slide Content */}
+        <div className="relative z-10 w-full h-full flex flex-col justify-end p-8 md:p-14 text-left">
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={`text-${current}`}
+              initial={{ opacity: 0, y: 30, filter: 'blur(10px)' }}
+              animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
+              exit={{ opacity: 0, y: -20, filter: 'blur(10px)' }}
+              transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
+              className="max-w-2xl space-y-4 mb-8"
+            >
+              <h3 className="text-3xl md:text-5xl font-black text-white tracking-tight leading-none drop-shadow-md">
+                <span className="bg-gradient-to-r from-white via-white to-[#DF871B] bg-clip-text text-transparent">
+                  {phrases[current].title}
+                </span>
+              </h3>
+              
+              <div className="relative pl-5 border-l-2 border-[#DF871B]">
+                <p className="text-base md:text-xl text-slate-200 leading-relaxed font-light italic">
+                  "{phrases[current].text}"
+                </p>
+              </div>
+            </motion.div>
+          </AnimatePresence>
+
+          {/* Interactive Slide Tabs Navigation Bar */}
+          <div className="relative z-20 flex items-center gap-2 pt-2 border-t border-white/10">
+            {phrases.map((item, i) => (
+              <button
+                key={i}
+                onClick={() => setCurrent(i)}
+                className={`group/btn flex-1 py-2 text-left transition-all relative ${
+                  i === current ? 'opacity-100' : 'opacity-40 hover:opacity-80'
+                }`}
+              >
+                <div className="text-[10px] font-bold uppercase tracking-wider text-white hidden sm:block truncate mb-1">
+                  {item.title}
+                </div>
+                <div className="h-1.5 w-full bg-white/20 rounded-full overflow-hidden">
+                  {i === current ? (
+                    <motion.div 
+                      className="h-full bg-[#DF871B] rounded-full"
+                      initial={{ width: '0%' }}
+                      animate={{ width: '100%' }}
+                      transition={{ duration: isPaused ? 0 : 5, ease: 'linear' }}
+                    />
+                  ) : (
+                    <div className="h-full w-0 group-hover/btn:w-full bg-white/50 transition-all duration-300 rounded-full" />
+                  )}
+                </div>
+              </button>
+            ))}
+          </div>
+        </div>
+
+        {/* Floating Navigation Controls */}
         <button 
           onClick={prev}
-          className="absolute left-4 top-1/2 -translate-y-1/2 p-2 rounded-full bg-white/5 border border-white/10 text-white opacity-0 group-hover:opacity-100 transition-opacity hover:bg-[#DF871B] hover:text-white"
+          aria-label="Slide anterior"
+          className="absolute left-4 top-1/2 -translate-y-1/2 z-30 p-3 rounded-full bg-black/40 backdrop-blur-md border border-white/20 text-white opacity-80 md:opacity-0 group-hover:opacity-100 transition-all hover:bg-[#DF871B] hover:border-[#DF871B] hover:scale-110 active:scale-95 shadow-lg"
         >
           <ChevronLeft className="w-6 h-6" />
         </button>
         <button 
           onClick={next}
-          className="absolute right-4 top-1/2 -translate-y-1/2 p-2 rounded-full bg-white/5 border border-white/10 text-white opacity-0 group-hover:opacity-100 transition-opacity hover:bg-[#DF871B] hover:text-white"
+          aria-label="Siguiente slide"
+          className="absolute right-4 top-1/2 -translate-y-1/2 z-30 p-3 rounded-full bg-black/40 backdrop-blur-md border border-white/20 text-white opacity-80 md:opacity-0 group-hover:opacity-100 transition-all hover:bg-[#DF871B] hover:border-[#DF871B] hover:scale-110 active:scale-95 shadow-lg"
         >
           <ChevronRight className="w-6 h-6" />
         </button>
-
-        {/* Indicators */}
-        <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex gap-2">
-          {phrases.map((_, i) => (
-            <div 
-              key={i}
-              className={`h-1 transition-all duration-300 rounded-full ${i === current ? 'w-8 bg-[#DF871B]' : 'w-2 bg-white/20'}`}
-            />
-          ))}
-        </div>
-      </motion.div>
+      </div>
     </div>
   );
 };
