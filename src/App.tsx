@@ -5,6 +5,10 @@
 
 import React, { useState, useRef, Suspense, useEffect } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
+import { PropiedadHorizontal } from './components/PropiedadHorizontal';
+import { LegalContactForm } from './components/LegalContactForm';
+import heroBg from './assets/images/asi_lawyers_hero_hd_1784786185757.jpg';
+import teamImg from './assets/images/modern_lawyers_team_1784774266222.jpg';
 import { 
   Shield, 
   Gavel, 
@@ -32,10 +36,13 @@ import {
 } from 'lucide-react';
 
 const COLORS = {
-  primary: '#0a2540', // Deep Blue
-  secondary: '#c5a059', // Gold/Brass
-  accent: '#f8f9fa', // Light Gray
-  text: '#333333',
+  navy: '#0D1E3A', // Deep Corporate Navy Blue
+  navyDark: '#071324', // Extra Deep Navy
+  amber: '#DF871B', // Warm Amber Gold
+  amberHover: '#E5952B',
+  bgLight: '#F4F6FA',
+  textDark: '#0D1E3A',
+  textMuted: '#64748B',
 };
 
 const SERVICES = [
@@ -123,17 +130,17 @@ const WhoWeAre = ({ onContactClick }: { onContactClick: () => void }) => {
       className="min-h-screen relative overflow-hidden bg-white"
     >
       {/* Top Section: Dark Atmospheric */}
-      <div className="relative min-h-screen flex items-center bg-black overflow-hidden">
+      <div className="relative min-h-screen flex items-center bg-[#0B1A30] overflow-hidden">
         {/* Background with Atmospheric Overlay */}
         <div className="absolute inset-0 z-0">
           <img 
             src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80&w=2000" 
             alt="Modern Office Background" 
-            className="w-full h-full object-cover opacity-30 scale-105"
+            className="w-full h-full object-cover opacity-25 scale-105"
             referrerPolicy="no-referrer"
           />
-          <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/40 to-black" />
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_30%,rgba(197,160,89,0.1),transparent_60%)]" />
+          <div className="absolute inset-0 bg-gradient-to-b from-[#071324]/80 via-[#0B1A30]/50 to-[#0B1A30]" />
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_30%,rgba(223,135,27,0.12),transparent_60%)]" />
         </div>
 
         <div className="max-w-5xl mx-auto px-6 relative z-10 py-32">
@@ -162,8 +169,8 @@ const WhoWeAre = ({ onContactClick }: { onContactClick: () => void }) => {
                 }}
                 className="inline-flex items-center gap-3 px-4 py-1.5 rounded-full bg-white/10 backdrop-blur-md border border-white/10"
               >
-                <Users className="w-4 h-4 text-[#c5a059]" />
-                <span className="text-[#c5a059] text-[10px] font-bold uppercase tracking-[0.3em]">Nuestra Identidad</span>
+                <Users className="w-4 h-4 text-[#DF871B]" />
+                <span className="text-[#DF871B] text-[10px] font-bold uppercase tracking-[0.3em]">Nuestra Identidad</span>
               </motion.div>
               
               <motion.h2 
@@ -174,7 +181,7 @@ const WhoWeAre = ({ onContactClick }: { onContactClick: () => void }) => {
                 className="text-5xl md:text-7xl font-bold text-white leading-[1.1] tracking-tighter"
               >
                 ¿Quiénes <br />
-                <span className="italic font-serif text-[#c5a059]">somos?</span>
+                <span className="italic font-serif text-[#DF871B]">somos?</span>
               </motion.h2>
 
               <motion.h3 
@@ -184,7 +191,7 @@ const WhoWeAre = ({ onContactClick }: { onContactClick: () => void }) => {
                 }}
                 className="text-2xl md:text-3xl font-medium text-white/90 leading-tight tracking-tight text-balance"
               >
-                Una firma dedicada a la <span className="text-[#c5a059]">consultoría jurídica</span> estratégica con visión global.
+                Una firma dedicada a la <span className="text-[#DF871B]">consultoría jurídica</span> estratégica con visión global.
               </motion.h3>
 
               <motion.p 
@@ -192,7 +199,7 @@ const WhoWeAre = ({ onContactClick }: { onContactClick: () => void }) => {
                   hidden: { opacity: 0, y: 20 },
                   visible: { opacity: 1, y: 0 }
                 }}
-                className="text-lg text-gray-400 leading-relaxed font-light text-balance"
+                className="text-lg text-slate-300 leading-relaxed font-light text-balance"
               >
                 Contamos con un equipo de trabajo compuesto por abogados de amplia experiencia y conocimiento en la legislación colombiana. Brindamos un servicio completo y a la medida de sus necesidades.
               </motion.p>
@@ -206,7 +213,7 @@ const WhoWeAre = ({ onContactClick }: { onContactClick: () => void }) => {
               >
                 <button 
                   onClick={onContactClick}
-                  className="bg-[#c5a059] text-black px-10 py-4 rounded-full font-bold text-lg transition-all hover:bg-[#d5b069] hover:scale-[1.02] active:scale-[0.98]"
+                  className="bg-[#DF871B] text-white px-10 py-4 rounded-full font-bold text-lg transition-all hover:bg-[#e5952b] hover:scale-[1.02] active:scale-[0.98] shadow-lg shadow-[#DF871B]/20"
                 >
                   Agendar Consulta
                 </button>
@@ -227,7 +234,7 @@ const WhoWeAre = ({ onContactClick }: { onContactClick: () => void }) => {
                     className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105"
                     referrerPolicy="no-referrer"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#0B1A30]/80 via-transparent to-transparent" />
                 </div>
                 
                 <div className="absolute bottom-8 left-8 right-8 p-6 glass-dark border border-white/10 rounded-2xl transform translate-y-2 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-500">
@@ -240,10 +247,10 @@ const WhoWeAre = ({ onContactClick }: { onContactClick: () => void }) => {
       </div>
 
       {/* Mission & Vision Section */}
-      <div className="bg-[#050505] py-32 relative overflow-hidden">
+      <div className="bg-[#071324] py-32 relative overflow-hidden">
         {/* Enhanced Background Glow */}
         <div className="absolute inset-0 opacity-25">
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1000px] h-[1000px] bg-[#c5a059]/20 rounded-full blur-[180px]" />
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1000px] h-[1000px] bg-[#DF871B]/15 rounded-full blur-[180px]" />
         </div>
         
         <div className="max-w-6xl mx-auto px-6 relative z-10">
@@ -253,15 +260,15 @@ const WhoWeAre = ({ onContactClick }: { onContactClick: () => void }) => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               whileHover={{ y: -10, transition: { duration: 0.4 } }}
-              className="bg-[#111111] p-12 md:p-16 rounded-[4rem] border border-white/10 shadow-[0_20px_50px_rgba(0,0,0,0.5)] flex flex-col gap-8 transition-all duration-500 group"
+              className="bg-[#0D203D] p-12 md:p-16 rounded-[4rem] border border-white/10 shadow-[0_20px_50px_rgba(0,0,0,0.4)] flex flex-col gap-8 transition-all duration-500 group"
             >
               <div className="flex items-center gap-6">
-                <div className="w-16 h-16 rounded-2xl bg-[#1a1a1a] border border-[#c5a059]/30 flex items-center justify-center shadow-inner group-hover:border-[#c5a059] transition-colors duration-500">
-                  <Target className="w-8 h-8 text-[#c5a059]" />
+                <div className="w-16 h-16 rounded-2xl bg-[#0B1A30] border border-[#DF871B]/30 flex items-center justify-center shadow-inner group-hover:border-[#DF871B] transition-colors duration-500">
+                  <Target className="w-8 h-8 text-[#DF871B]" />
                 </div>
-                <h3 className="text-4xl md:text-5xl font-serif italic text-[#c5a059] tracking-tight">Misión</h3>
+                <h3 className="text-4xl md:text-5xl font-serif italic text-[#DF871B] tracking-tight">Misión</h3>
               </div>
-              <p className="text-lg md:text-xl text-gray-300 leading-relaxed font-light tracking-wide group-hover:text-white transition-colors duration-500">
+              <p className="text-lg md:text-xl text-slate-300 leading-relaxed font-light tracking-wide group-hover:text-white transition-colors duration-500">
                 "Brindar asesoría legal integral y personalizada, destacando por nuestra excelencia profesional y compromiso con la justicia, para resolver eficazmente los desafíos legales de nuestros clientes"
               </p>
             </motion.div>
@@ -272,15 +279,15 @@ const WhoWeAre = ({ onContactClick }: { onContactClick: () => void }) => {
               viewport={{ once: true }}
               transition={{ delay: 0.2 }}
               whileHover={{ y: -10, transition: { duration: 0.4 } }}
-              className="bg-[#111111] p-12 md:p-16 rounded-[4rem] border border-white/10 shadow-[0_20px_50px_rgba(0,0,0,0.5)] flex flex-col gap-8 transition-all duration-500 group"
+              className="bg-[#0D203D] p-12 md:p-16 rounded-[4rem] border border-white/10 shadow-[0_20px_50px_rgba(0,0,0,0.4)] flex flex-col gap-8 transition-all duration-500 group"
             >
               <div className="flex items-center gap-6">
-                <div className="w-16 h-16 rounded-2xl bg-[#1a1a1a] border border-[#c5a059]/30 flex items-center justify-center shadow-inner group-hover:border-[#c5a059] transition-colors duration-500">
-                  <Eye className="w-8 h-8 text-[#c5a059]" />
+                <div className="w-16 h-16 rounded-2xl bg-[#0B1A30] border border-[#DF871B]/30 flex items-center justify-center shadow-inner group-hover:border-[#DF871B] transition-colors duration-500">
+                  <Eye className="w-8 h-8 text-[#DF871B]" />
                 </div>
-                <h3 className="text-4xl md:text-5xl font-serif italic text-[#c5a059] tracking-tight">Visión</h3>
+                <h3 className="text-4xl md:text-5xl font-serif italic text-[#DF871B] tracking-tight">Visión</h3>
               </div>
-              <p className="text-lg md:text-xl text-gray-300 leading-relaxed font-light tracking-wide group-hover:text-white transition-colors duration-500">
+              <p className="text-lg md:text-xl text-slate-300 leading-relaxed font-light tracking-wide group-hover:text-white transition-colors duration-500">
                 "Ser reconocidos como líderes en consultoría jurídica, destacando por nuestra ética, innovación y capacidad para anticipar y abordar las necesidades legales emergentes, contribuyendo así al éxito y bienestar de nuestros clientes en un entorno legal dinámico"
               </p>
             </motion.div>
@@ -289,7 +296,7 @@ const WhoWeAre = ({ onContactClick }: { onContactClick: () => void }) => {
       </div>
 
       {/* Principles Section */}
-      <div className="bg-[#f5f5f7] py-32">
+      <div className="bg-[#F4F6FA] py-32">
         <div className="max-w-5xl mx-auto px-6">
           <div className="space-y-16">
             <motion.div
@@ -298,8 +305,8 @@ const WhoWeAre = ({ onContactClick }: { onContactClick: () => void }) => {
               viewport={{ once: true }}
               className="max-w-3xl"
             >
-              <span className="text-sm font-semibold text-[#c5a059] uppercase tracking-[0.2em] mb-6 block">Nuestros Valores</span>
-              <h2 className="text-3xl md:text-5xl font-bold text-[#1d1d1f] leading-[1.1] tracking-tight text-balance">
+              <span className="text-sm font-semibold text-[#DF871B] uppercase tracking-[0.2em] mb-6 block">Nuestros Valores</span>
+              <h2 className="text-3xl md:text-5xl font-bold text-[#0D1E3A] leading-[1.1] tracking-tight text-balance">
                 Estos principios son la base de nuestra identidad y compromiso con la excelencia.
               </h2>
             </motion.div>
@@ -310,17 +317,17 @@ const WhoWeAre = ({ onContactClick }: { onContactClick: () => void }) => {
                   {
                     title: "Excelencia Profesional",
                     text: "Calidad superior basada en conocimiento actualizado y experiencia especializada.",
-                    icon: <CheckCircle2 className="w-6 h-6 text-[#c5a059]" />
+                    icon: <CheckCircle2 className="w-6 h-6 text-[#DF871B]" />
                   },
                   {
                     title: "Integridad y Ética",
                     text: "Honestidad, transparencia y respeto en todas nuestras interacciones profesionales.",
-                    icon: <Shield className="w-6 h-6 text-[#c5a059]" />
+                    icon: <Shield className="w-6 h-6 text-[#DF871B]" />
                   },
                   {
                     title: "Compromiso",
                     text: "Priorizamos sus objetivos, ofreciendo soluciones eficientes y personalizadas.",
-                    icon: <Handshake className="w-6 h-6 text-[#c5a059]" />
+                    icon: <Handshake className="w-6 h-6 text-[#DF871B]" />
                   }
                 ].map((val, i) => (
                   <motion.div
@@ -337,17 +344,17 @@ const WhoWeAre = ({ onContactClick }: { onContactClick: () => void }) => {
                     whileHover={{ 
                       y: -15, 
                       scale: 1.03,
-                      boxShadow: "0 40px 80px -15px rgba(0, 0, 0, 0.1)"
+                      boxShadow: "0 40px 80px -15px rgba(11, 26, 48, 0.08)"
                     }}
-                    className="p-10 rounded-[3rem] bg-gradient-to-br from-white via-[#fdfbf7] to-[#f5f2ed] border border-[#c5a059]/10 shadow-[0_10px_40px_-15px_rgba(0,0,0,0.05)] transition-all duration-500 group relative overflow-hidden"
+                    className="p-10 rounded-[3rem] bg-gradient-to-br from-white via-[#FAFBFD] to-[#F2F5F9] border border-[#DF871B]/15 shadow-[0_10px_40px_-15px_rgba(0,0,0,0.05)] transition-all duration-500 group relative overflow-hidden"
                   >
-                    <div className="absolute inset-0 bg-gradient-to-br from-[#c5a059]/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                    <div className="absolute inset-0 bg-gradient-to-br from-[#DF871B]/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                     <div className="relative z-10">
-                      <div className="mb-8 w-16 h-16 rounded-2xl bg-white flex items-center justify-center group-hover:bg-[#c5a059] group-hover:text-white transition-all duration-500 shadow-sm group-hover:shadow-gold group-hover:scale-110">
+                      <div className="mb-8 w-16 h-16 rounded-2xl bg-white flex items-center justify-center group-hover:bg-[#DF871B] group-hover:text-white transition-all duration-500 shadow-sm group-hover:scale-110">
                         {React.cloneElement(val.icon as React.ReactElement<any>, { className: "w-7 h-7 transition-colors duration-500" })}
                       </div>
-                      <h4 className="text-xl font-black text-[#1d1d1f] mb-4 tracking-tight group-hover:text-[#c5a059] transition-colors duration-500">{val.title}</h4>
-                      <p className="text-gray-600 text-sm leading-relaxed font-medium group-hover:text-gray-900 transition-colors duration-500">{val.text}</p>
+                      <h4 className="text-xl font-black text-[#0D1E3A] mb-4 tracking-tight group-hover:text-[#DF871B] transition-colors duration-500">{val.title}</h4>
+                      <p className="text-slate-600 text-sm leading-relaxed font-medium group-hover:text-slate-900 transition-colors duration-500">{val.text}</p>
                     </div>
                   </motion.div>
                 ))}
@@ -358,12 +365,12 @@ const WhoWeAre = ({ onContactClick }: { onContactClick: () => void }) => {
                   {
                     title: "Innovación",
                     text: "Buscamos constantemente nuevas perspectivas para abordar desafíos legales complejos.",
-                    icon: <Briefcase className="w-6 h-6 text-[#c5a059]" />
+                    icon: <Briefcase className="w-6 h-6 text-[#DF871B]" />
                   },
                   {
                     title: "Responsabilidad Social",
                     text: "Contribuimos a la comunidad promoviendo la justicia y apoyando causas sociales.",
-                    icon: <Heart className="w-6 h-6 text-[#c5a059]" />
+                    icon: <Heart className="w-6 h-6 text-[#DF871B]" />
                   }
                 ].map((val, i) => (
                   <motion.div
@@ -380,17 +387,17 @@ const WhoWeAre = ({ onContactClick }: { onContactClick: () => void }) => {
                     whileHover={{ 
                       y: -15, 
                       scale: 1.03,
-                      boxShadow: "0 40px 80px -15px rgba(0, 0, 0, 0.1)"
+                      boxShadow: "0 40px 80px -15px rgba(11, 26, 48, 0.08)"
                     }}
-                    className="p-10 rounded-[3rem] bg-gradient-to-br from-white via-[#fdfbf7] to-[#f5f2ed] border border-[#c5a059]/10 shadow-[0_10px_40px_-15px_rgba(0,0,0,0.05)] transition-all duration-500 group relative overflow-hidden"
+                    className="p-10 rounded-[3rem] bg-gradient-to-br from-white via-[#FAFBFD] to-[#F2F5F9] border border-[#DF871B]/15 shadow-[0_10px_40px_-15px_rgba(0,0,0,0.05)] transition-all duration-500 group relative overflow-hidden"
                   >
-                    <div className="absolute inset-0 bg-gradient-to-br from-[#c5a059]/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                    <div className="absolute inset-0 bg-gradient-to-br from-[#DF871B]/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                     <div className="relative z-10">
-                      <div className="mb-8 w-16 h-16 rounded-2xl bg-white flex items-center justify-center group-hover:bg-[#c5a059] group-hover:text-white transition-all duration-500 shadow-sm group-hover:shadow-gold group-hover:scale-110">
+                      <div className="mb-8 w-16 h-16 rounded-2xl bg-white flex items-center justify-center group-hover:bg-[#DF871B] group-hover:text-white transition-all duration-500 shadow-sm group-hover:scale-110">
                         {React.cloneElement(val.icon as React.ReactElement<any>, { className: "w-7 h-7 transition-colors duration-500" })}
                       </div>
-                      <h4 className="text-xl font-black text-[#1d1d1f] mb-4 tracking-tight group-hover:text-[#c5a059] transition-colors duration-500">{val.title}</h4>
-                      <p className="text-gray-600 text-sm leading-relaxed font-medium group-hover:text-gray-900 transition-colors duration-500">{val.text}</p>
+                      <h4 className="text-xl font-black text-[#0D1E3A] mb-4 tracking-tight group-hover:text-[#DF871B] transition-colors duration-500">{val.title}</h4>
+                      <p className="text-slate-600 text-sm leading-relaxed font-medium group-hover:text-slate-900 transition-colors duration-500">{val.text}</p>
                     </div>
                   </motion.div>
                 ))}
@@ -416,8 +423,8 @@ const Navbar = ({ onPageChange, currentPage }: { onPageChange: (page: string) =>
   const handleNavClick = (e: React.MouseEvent, page: string, sectionId?: string) => {
     e.preventDefault();
     setIsOpen(false);
-    if (page === 'nosotros') {
-      onPageChange('nosotros');
+    if (page === 'nosotros' || page === 'propiedad-horizontal') {
+      onPageChange(page);
       window.scrollTo({ top: 0, behavior: 'smooth' });
     } else {
       onPageChange('home');
@@ -435,14 +442,21 @@ const Navbar = ({ onPageChange, currentPage }: { onPageChange: (page: string) =>
   };
 
   return (
-    <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${scrolled ? 'py-4' : 'py-6'}`}>
-      <div className="max-w-5xl mx-auto px-6">
-        <div className={`flex justify-between h-14 items-center px-6 rounded-full transition-all duration-500 ${scrolled ? 'bg-white/80 backdrop-blur-2xl shadow-sm border border-black/5' : 'bg-transparent'}`}>
+    <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${scrolled ? 'py-3' : 'py-5'}`}>
+      <div className="max-w-6xl mx-auto px-4 sm:px-6">
+        <div 
+          className={`flex justify-between h-16 items-center px-6 rounded-full transition-all duration-500 ${
+            scrolled 
+              ? 'liquid-glass-scrolled' 
+              : 'liquid-glass'
+          }`}
+        >
+          {/* Logo Brand */}
           <div 
-            className="flex items-center gap-4 cursor-pointer group"
+            className="flex items-center gap-3 cursor-pointer group shrink-0"
             onClick={(e) => handleNavClick(e, 'home')}
           >
-            <div className="w-12 h-12 rounded-full overflow-hidden shadow-md transition-transform group-hover:scale-110 border border-black/5">
+            <div className="w-10 h-10 sm:w-11 sm:h-11 rounded-full overflow-hidden shadow-lg transition-transform group-hover:scale-105 border border-white/30 shrink-0">
               <img 
                 src="https://i.ibb.co/HpR3zgt8/Dise-o-sin-t-tulo.png" 
                 alt="ASI Consultores Logo" 
@@ -450,62 +464,81 @@ const Navbar = ({ onPageChange, currentPage }: { onPageChange: (page: string) =>
                 referrerPolicy="no-referrer"
               />
             </div>
-            <div className="flex flex-col">
-              <span className={`text-lg font-bold tracking-tighter leading-none uppercase ${scrolled ? 'text-black' : 'text-white'}`}>ASI</span>
-              <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-[#c5a059]">Consultores</span>
+            <div className="flex flex-col whitespace-nowrap">
+              <span className={`text-base sm:text-lg font-black tracking-tight leading-none uppercase transition-colors ${scrolled ? 'text-[#0D1E3A]' : 'text-white drop-shadow-sm'}`}>
+                ASI
+              </span>
+              <span className="text-[10px] sm:text-[11px] font-extrabold uppercase tracking-[0.2em] text-[#DF871B]">
+                Consultores
+              </span>
             </div>
           </div>
           
-          <div className="hidden md:flex items-center space-x-10">
-            {['Inicio', 'Servicios', 'Nosotros'].map((item) => {
-              const page = item.toLowerCase() === 'nosotros' ? 'nosotros' : 'home';
-              const sectionId = item.toLowerCase() === 'servicios' ? 'servicios' : undefined;
-              const isActive = (item.toLowerCase() === 'nosotros' && currentPage === 'nosotros') || 
-                               (item.toLowerCase() === 'inicio' && currentPage === 'home');
+          {/* Desktop Links */}
+          <div className="hidden md:flex items-center space-x-6 lg:space-x-8">
+            {[
+              { name: 'Inicio', page: 'home' },
+              { name: 'Servicios', page: 'home', sectionId: 'servicios' },
+              { name: 'Propiedad Horizontal', page: 'propiedad-horizontal' },
+              { name: 'Nosotros', page: 'nosotros' }
+            ].map((item) => {
+              const isActive = (item.page === 'propiedad-horizontal' && currentPage === 'propiedad-horizontal') ||
+                               (item.page === 'nosotros' && currentPage === 'nosotros') || 
+                               (item.page === 'home' && currentPage === 'home' && !item.sectionId);
               
               return (
                 <a 
-                  key={item}
-                  href={`#${item.toLowerCase()}`} 
-                  onClick={(e) => handleNavClick(e, page, sectionId)}
-                  className={`text-sm font-medium transition-all hover:opacity-100 ${isActive ? (scrolled ? 'text-black' : 'text-white') : (scrolled ? 'text-black/50 hover:text-black' : 'text-white/50 hover:text-white')}`}
+                  key={item.name}
+                  href={`#${item.page}`} 
+                  onClick={(e) => handleNavClick(e, item.page, item.sectionId)}
+                  className={`text-sm font-bold whitespace-nowrap transition-all duration-200 ${
+                    isActive 
+                      ? 'text-[#DF871B] underline decoration-2 underline-offset-8' 
+                      : (scrolled ? 'text-[#0D1E3A]/80 hover:text-[#DF871B]' : 'text-white/90 hover:text-white hover:drop-shadow-[0_0_8px_rgba(255,255,255,0.8)]')
+                  }`}
                 >
-                  {item}
+                  {item.name}
                 </a>
               );
             })}
             
-            <div className="flex items-center space-x-4 border-l border-white/10 pl-6 ml-2">
+            <div className={`flex items-center space-x-3 border-l pl-5 ${scrolled ? 'border-[#0D1E3A]/15' : 'border-white/20'}`}>
               <a 
                 href="https://www.instagram.com/asiconsultores/" 
                 target="_blank" 
                 rel="noopener noreferrer"
-                className={`transition-all hover:scale-110 ${scrolled ? 'text-black/50 hover:text-black' : 'text-white/50 hover:text-white'}`}
+                title="Instagram ASI Consultores"
+                className={`p-1.5 rounded-full transition-all hover:scale-110 ${scrolled ? 'text-[#0D1E3A]/70 hover:text-[#DF871B]' : 'text-white/80 hover:text-white'}`}
               >
-                <Instagram className="w-5 h-5" />
+                <Instagram className="w-4 h-4" />
               </a>
               <a 
                 href="https://www.linkedin.com/in/asi-consultores-ltda-35a786370/" 
                 target="_blank" 
                 rel="noopener noreferrer"
-                className={`transition-all hover:scale-110 ${scrolled ? 'text-black/50 hover:text-black' : 'text-white/50 hover:text-white'}`}
+                title="LinkedIn ASI Consultores"
+                className={`p-1.5 rounded-full transition-all hover:scale-110 ${scrolled ? 'text-[#0D1E3A]/70 hover:text-[#DF871B]' : 'text-white/80 hover:text-white'}`}
               >
-                <Linkedin className="w-5 h-5" />
+                <Linkedin className="w-4 h-4" />
               </a>
             </div>
 
             <a 
               href="#contacto" 
               onClick={(e) => handleNavClick(e, 'home', 'contacto')}
-              className={`px-5 py-2 rounded-full text-sm font-medium transition-all ${scrolled ? 'bg-black text-white hover:bg-black/80' : 'bg-white text-black hover:bg-white/90'}`}
+              className={`px-5 py-2 rounded-full text-sm font-bold whitespace-nowrap transition-all shadow-md hover:scale-105 ${
+                scrolled 
+                  ? 'bg-[#0D1E3A] text-white hover:bg-[#0B1A30]' 
+                  : 'bg-[#DF871B] text-white hover:bg-[#e5952b] shadow-[0_4px_20px_rgba(223,135,27,0.4)]'
+              }`}
             >
               Contacto
             </a>
           </div>
 
           <div className="md:hidden">
-            <button onClick={() => setIsOpen(!isOpen)} className={scrolled ? 'text-black' : 'text-white'}>
-              {isOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+            <button onClick={() => setIsOpen(!isOpen)} className={scrolled ? 'text-[#0D1E3A]' : 'text-white'}>
+              {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
             </button>
           </div>
         </div>
@@ -518,21 +551,22 @@ const Navbar = ({ onPageChange, currentPage }: { onPageChange: (page: string) =>
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
-            className="absolute top-full left-6 right-6 mt-4 bg-white/95 backdrop-blur-2xl rounded-3xl border border-black/5 p-8 space-y-6 shadow-2xl md:hidden"
+            className="absolute top-full left-6 right-6 mt-4 bg-white/95 backdrop-blur-2xl rounded-3xl border border-[#0D1E3A]/10 p-8 space-y-6 shadow-2xl md:hidden"
           >
-            <a href="#inicio" onClick={(e) => handleNavClick(e, 'home')} className="block text-2xl font-semibold text-black">Inicio</a>
-            <a href="#servicios" onClick={(e) => handleNavClick(e, 'home', 'servicios')} className="block text-2xl font-semibold text-black">Servicios</a>
-            <a href="#nosotros" onClick={(e) => handleNavClick(e, 'nosotros')} className="block text-2xl font-semibold text-black">Nosotros</a>
-            <a href="#contacto" onClick={(e) => handleNavClick(e, 'home', 'contacto')} className="block bg-black text-white px-6 py-4 rounded-2xl font-semibold text-center text-lg">
+            <a href="#inicio" onClick={(e) => handleNavClick(e, 'home')} className="block text-xl font-semibold text-[#0D1E3A]">Inicio</a>
+            <a href="#servicios" onClick={(e) => handleNavClick(e, 'home', 'servicios')} className="block text-xl font-semibold text-[#0D1E3A]">Servicios</a>
+            <a href="#propiedad-horizontal" onClick={(e) => handleNavClick(e, 'propiedad-horizontal')} className="block text-xl font-semibold text-[#0D1E3A]">Propiedad Horizontal</a>
+            <a href="#nosotros" onClick={(e) => handleNavClick(e, 'nosotros')} className="block text-xl font-semibold text-[#0D1E3A]">Nosotros</a>
+            <a href="#contacto" onClick={(e) => handleNavClick(e, 'home', 'contacto')} className="block bg-[#DF871B] text-white px-6 py-3 rounded-2xl font-semibold text-center text-base shadow-lg">
               Contacto
             </a>
             
-            <div className="pt-6 border-t border-black/5 flex justify-center gap-8">
+            <div className="pt-6 border-t border-[#0D1E3A]/10 flex justify-center gap-8">
               <a 
                 href="https://www.instagram.com/asiconsultores/" 
                 target="_blank" 
                 rel="noopener noreferrer"
-                className="w-14 h-14 rounded-2xl bg-black/5 flex items-center justify-center text-black hover:bg-[#c5a059] hover:text-white transition-all"
+                className="w-14 h-14 rounded-2xl bg-[#0D1E3A]/5 flex items-center justify-center text-[#0D1E3A] hover:bg-[#DF871B] hover:text-white transition-all"
               >
                 <Instagram className="w-7 h-7" />
               </a>
@@ -540,7 +574,7 @@ const Navbar = ({ onPageChange, currentPage }: { onPageChange: (page: string) =>
                 href="https://www.linkedin.com/in/asi-consultores-ltda-35a786370/" 
                 target="_blank" 
                 rel="noopener noreferrer"
-                className="w-14 h-14 rounded-2xl bg-black/5 flex items-center justify-center text-black hover:bg-[#c5a059] hover:text-white transition-all"
+                className="w-14 h-14 rounded-2xl bg-[#0D1E3A]/5 flex items-center justify-center text-[#0D1E3A] hover:bg-[#DF871B] hover:text-white transition-all"
               >
                 <Linkedin className="w-7 h-7" />
               </a>
@@ -593,7 +627,7 @@ const ValueSlider = () => {
         initial={{ opacity: 0, scale: 0.8 }}
         animate={{ opacity: 1, scale: 1 }}
         transition={{ duration: 4, ease: [0.2, 0, 0, 1] }}
-        className="absolute inset-0 bg-[#c5a059]/5 rounded-full blur-[100px]" 
+        className="absolute inset-0 bg-[#DF871B]/10 rounded-full blur-[100px]" 
       />
       
       <motion.div 
@@ -604,13 +638,13 @@ const ValueSlider = () => {
           scale: 0.95
         }}
         animate={{ 
-          backgroundColor: 'rgba(255, 255, 255, 0.1)', 
-          borderColor: 'rgba(197, 160, 89, 0.4)',
+          backgroundColor: 'rgba(13, 30, 58, 0.4)', 
+          borderColor: 'rgba(223, 135, 27, 0.4)',
           backdropFilter: 'blur(20px)',
           scale: 1
         }}
         transition={{ duration: 4, ease: [0.2, 0, 0, 1] }}
-        className="relative z-10 w-full max-w-md h-[320px] rounded-[3rem] border-2 shadow-[0_50px_100px_-20px_rgba(0,0,0,0.6),0_0_60px_rgba(197,160,89,0.2)] overflow-hidden group"
+        className="relative z-10 w-full max-w-md h-[320px] rounded-[3rem] border-2 shadow-[0_50px_100px_-20px_rgba(7,19,36,0.8),0_0_60px_rgba(223,135,27,0.25)] overflow-hidden group"
       >
         <AnimatePresence mode="sync">
           <motion.div
@@ -622,7 +656,7 @@ const ValueSlider = () => {
             className="absolute inset-0 flex flex-col items-center justify-center p-12 text-center"
           >
             <motion.h3 
-              className="text-[#c5a059] text-3xl font-black mb-6 tracking-tighter"
+              className="text-[#DF871B] text-3xl font-black mb-6 tracking-tighter"
             >
               {phrases[current].title}
             </motion.h3>
@@ -637,13 +671,13 @@ const ValueSlider = () => {
         {/* Navigation Arrows */}
         <button 
           onClick={prev}
-          className="absolute left-4 top-1/2 -translate-y-1/2 p-2 rounded-full bg-white/5 border border-white/10 text-white opacity-0 group-hover:opacity-100 transition-opacity hover:bg-[#c5a059] hover:text-[#0a2540]"
+          className="absolute left-4 top-1/2 -translate-y-1/2 p-2 rounded-full bg-white/5 border border-white/10 text-white opacity-0 group-hover:opacity-100 transition-opacity hover:bg-[#DF871B] hover:text-white"
         >
           <ChevronLeft className="w-6 h-6" />
         </button>
         <button 
           onClick={next}
-          className="absolute right-4 top-1/2 -translate-y-1/2 p-2 rounded-full bg-white/5 border border-white/10 text-white opacity-0 group-hover:opacity-100 transition-opacity hover:bg-[#c5a059] hover:text-[#0a2540]"
+          className="absolute right-4 top-1/2 -translate-y-1/2 p-2 rounded-full bg-white/5 border border-white/10 text-white opacity-0 group-hover:opacity-100 transition-opacity hover:bg-[#DF871B] hover:text-white"
         >
           <ChevronRight className="w-6 h-6" />
         </button>
@@ -653,7 +687,7 @@ const ValueSlider = () => {
           {phrases.map((_, i) => (
             <div 
               key={i}
-              className={`h-1 transition-all duration-300 rounded-full ${i === current ? 'w-8 bg-[#c5a059]' : 'w-2 bg-white/20'}`}
+              className={`h-1 transition-all duration-300 rounded-full ${i === current ? 'w-8 bg-[#DF871B]' : 'w-2 bg-white/20'}`}
             />
           ))}
         </div>
@@ -676,17 +710,17 @@ const Hero = ({ onFirmClick }: { onFirmClick: () => void }) => {
   };
 
   return (
-    <section id="inicio" className="relative min-h-screen flex flex-col justify-center overflow-hidden bg-black">
+    <section id="inicio" className="relative min-h-screen flex flex-col justify-center overflow-hidden bg-[#0B1A30]">
       {/* Background with Atmospheric Overlay */}
       <div className="absolute inset-0 z-0">
         <img 
-          src="https://images.unsplash.com/photo-1505664194779-8beaceb93744?auto=format&fit=crop&q=80&w=2000" 
-          alt="Law Office" 
-          className="w-full h-full object-cover opacity-40 scale-105"
+          src={heroBg} 
+          alt="ASI Consultores - Firma de Abogados" 
+          className="w-full h-full object-cover object-center opacity-45"
           referrerPolicy="no-referrer"
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/20 to-black" />
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(197,160,89,0.1),transparent_70%)]" />
+        <div className="absolute inset-0 bg-gradient-to-b from-[#071324]/70 via-[#0B1A30]/40 to-[#0B1A30]" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_40%,rgba(223,135,27,0.15),transparent_70%)]" />
       </div>
 
       <div className="max-w-5xl mx-auto px-6 relative z-10 w-full pt-32 pb-20 text-center">
@@ -718,8 +752,8 @@ const Hero = ({ onFirmClick }: { onFirmClick: () => void }) => {
             className="inline-flex items-center gap-3 px-4 py-1.5 rounded-full bg-white/10 backdrop-blur-md border border-white/10 mb-8"
           >
             <span className="relative flex h-2 w-2">
-              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#c5a059] opacity-75"></span>
-              <span className="relative inline-flex rounded-full h-2 w-2 bg-[#c5a059]"></span>
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#DF871B] opacity-75"></span>
+              <span className="relative inline-flex rounded-full h-2 w-2 bg-[#DF871B]"></span>
             </span>
             <span className="text-white/90 text-[10px] font-semibold uppercase tracking-[0.2em]">Excelencia Legal en Colombia</span>
           </motion.div>
@@ -737,7 +771,7 @@ const Hero = ({ onFirmClick }: { onFirmClick: () => void }) => {
             className="text-6xl md:text-[100px] lg:text-[130px] font-bold text-white leading-[0.85] mb-8 tracking-tighter text-balance"
           >
             Firma de <br />
-            <span className="bg-gradient-to-b from-[#c5a059] to-[#e5c079] bg-clip-text text-transparent">Consultoría</span> <br />
+            <span className="bg-gradient-to-b from-[#DF871B] to-[#F5A038] bg-clip-text text-transparent">Consultoría</span> <br />
             Jurídica
           </motion.h1>
           
@@ -751,7 +785,7 @@ const Hero = ({ onFirmClick }: { onFirmClick: () => void }) => {
                 transition: { duration: 1, ease: [0.22, 1, 0.36, 1] }
               }
             }}
-            className="text-xl md:text-2xl text-gray-400 mb-12 max-w-2xl leading-relaxed font-light text-balance"
+            className="text-xl md:text-2xl text-slate-300 mb-12 max-w-2xl leading-relaxed font-light text-balance"
           >
             Especialistas en todas las ramas del derecho colombiano. Combinamos rigor académico con una visión estratégica para proteger sus intereses.
           </motion.p>
@@ -770,7 +804,7 @@ const Hero = ({ onFirmClick }: { onFirmClick: () => void }) => {
             <button 
               onClick={handlePremiumRedirect}
               disabled={isConnecting}
-              className="relative overflow-hidden bg-white text-black px-10 py-5 rounded-full font-bold text-lg transition-all hover:bg-white/90 hover:scale-[1.02] active:scale-[0.98] shadow-2xl shadow-white/10 group min-w-[280px]"
+              className="relative overflow-hidden bg-[#DF871B] text-white px-10 py-5 rounded-full font-bold text-lg transition-all hover:bg-[#e5952b] hover:scale-[1.02] active:scale-[0.98] shadow-2xl shadow-[#DF871B]/30 group min-w-[280px]"
             >
               <AnimatePresence mode="wait">
                 {isConnecting ? (
@@ -781,7 +815,7 @@ const Hero = ({ onFirmClick }: { onFirmClick: () => void }) => {
                     exit={{ opacity: 0, y: -10 }}
                     className="flex items-center justify-center gap-3"
                   >
-                    <div className="w-5 h-5 border-2 border-black/20 border-t-black rounded-full animate-spin" />
+                    <div className="w-5 h-5 border-2 border-white/20 border-t-white rounded-full animate-spin" />
                     <span className="text-sm tracking-tight">Conectando con un Especialista...</span>
                   </motion.div>
                 ) : (
@@ -799,7 +833,7 @@ const Hero = ({ onFirmClick }: { onFirmClick: () => void }) => {
               
               {/* Premium shine effect */}
               <motion.div 
-                className="absolute inset-0 bg-gradient-to-r from-transparent via-black/5 to-transparent -translate-x-full"
+                className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full"
                 animate={isConnecting ? { x: ['100%', '-100%'] } : {}}
                 transition={{ repeat: Infinity, duration: 1.5, ease: "linear" }}
               />
@@ -852,22 +886,22 @@ const Hero = ({ onFirmClick }: { onFirmClick: () => void }) => {
                   scale: 1.02,
                   transition: { type: "spring", stiffness: 250, damping: 25 }
                 }}
-                className="relative group bg-gradient-to-br from-white via-[#fdfbf7] to-[#f5f2ed] p-10 rounded-[3rem] border-2 border-[#c5a059]/30 hover:border-[#c5a059] transition-all duration-500 group cursor-default shadow-[0_40px_100px_-15px_rgba(0,0,0,0.3),0_0_80px_rgba(197,160,89,0.2)] hover:shadow-[0_80px_160px_-15px_rgba(0,0,0,0.5),0_0_120px_rgba(197,160,89,0.5)] overflow-hidden"
+                className="relative group bg-gradient-to-br from-white via-[#FAFBFD] to-[#F2F5F9] p-10 rounded-[3rem] border-2 border-[#DF871B]/30 hover:border-[#DF871B] transition-all duration-500 group cursor-default shadow-[0_40px_100px_-15px_rgba(11,26,48,0.25),0_0_80px_rgba(223,135,27,0.15)] hover:shadow-[0_80px_160px_-15px_rgba(11,26,48,0.4),0_0_120px_rgba(223,135,27,0.3)] overflow-hidden"
               >
                 {/* Gold Top Accent Line */}
-                <div className="absolute top-0 left-0 right-0 h-[8px] bg-gradient-to-r from-transparent via-[#c5a059] to-transparent opacity-50 group-hover:opacity-100 group-hover:h-[12px] transition-all duration-500" />
+                <div className="absolute top-0 left-0 right-0 h-[8px] bg-gradient-to-r from-transparent via-[#DF871B] to-transparent opacity-60 group-hover:opacity-100 group-hover:h-[12px] transition-all duration-500" />
                 
                 {/* Subtle Inner Glow */}
-                <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_0%,rgba(197,160,89,0.15),transparent_70%)] opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
+                <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_0%,rgba(223,135,27,0.15),transparent_70%)] opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
                 
                 <div className="relative z-10">
-                  <span className="text-[#c5a059] font-mono text-xs mb-6 block font-black tracking-[0.4em] opacity-60 group-hover:opacity-100 transition-opacity">{item.id}</span>
-                  <h3 className="text-[#0a2540] font-black text-2xl mb-4 group-hover:text-[#c5a059] transition-colors duration-500 tracking-tighter leading-tight">{item.title}</h3>
-                  <p className="text-[#0a2540]/70 text-sm leading-relaxed font-medium group-hover:text-[#0a2540] transition-colors duration-500">{item.desc}</p>
+                  <span className="text-[#DF871B] font-mono text-xs mb-6 block font-black tracking-[0.4em] opacity-80 group-hover:opacity-100 transition-opacity">{item.id}</span>
+                  <h3 className="text-[#0D1E3A] font-black text-2xl mb-4 group-hover:text-[#DF871B] transition-colors duration-500 tracking-tighter leading-tight">{item.title}</h3>
+                  <p className="text-[#0D1E3A]/70 text-sm leading-relaxed font-medium group-hover:text-[#0D1E3A] transition-colors duration-500">{item.desc}</p>
                 </div>
                 
                 {/* Decorative Bottom Element */}
-                <div className="absolute bottom-0 right-0 w-32 h-32 bg-[#c5a059]/5 rounded-full blur-3xl -mr-16 -mb-16 group-hover:bg-[#c5a059]/20 transition-all duration-700" />
+                <div className="absolute bottom-0 right-0 w-32 h-32 bg-[#DF871B]/5 rounded-full blur-3xl -mr-16 -mb-16 group-hover:bg-[#DF871B]/20 transition-all duration-700" />
               </motion.div>
             ))}
           </div>
@@ -888,10 +922,10 @@ const Hero = ({ onFirmClick }: { onFirmClick: () => void }) => {
 
 const Services = () => {
   return (
-    <section id="servicios" className="py-32 bg-[#0a0f1a] relative overflow-hidden">
+    <section id="servicios" className="py-32 bg-[#071324] relative overflow-hidden">
       {/* Background Accents */}
-      <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-[#c5a059]/5 rounded-full blur-[120px] -translate-y-1/2 translate-x-1/2" />
-      <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-[#c5a059]/5 rounded-full blur-[120px] translate-y-1/2 -translate-x-1/2" />
+      <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-[#DF871B]/5 rounded-full blur-[120px] -translate-y-1/2 translate-x-1/2" />
+      <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-[#DF871B]/5 rounded-full blur-[120px] translate-y-1/2 -translate-x-1/2" />
 
       <div className="max-w-7xl mx-auto px-6 relative z-10">
         <div className="text-center mb-20">
@@ -899,7 +933,7 @@ const Services = () => {
             initial={{ opacity: 0, y: 10 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-sm font-semibold text-[#c5a059] uppercase tracking-[0.2em] mb-4 block"
+            className="text-sm font-semibold text-[#DF871B] uppercase tracking-[0.2em] mb-4 block"
           >
             Especialidades
           </motion.span>
@@ -951,22 +985,22 @@ const Services = () => {
                 scale: 1.02,
                 transition: { type: "spring", stiffness: 250, damping: 25 } 
               }}
-              className="group relative bg-gradient-to-br from-white via-[#fdfbf7] to-[#f5f2ed] p-12 rounded-[3.5rem] border-2 border-[#c5a059]/20 hover:border-[#c5a059] shadow-[0_40px_100px_-15px_rgba(0,0,0,0.4)] hover:shadow-[0_100px_200px_-20px_rgba(0,0,0,0.6),0_0_100px_rgba(197,160,89,0.4)] transition-all duration-500 flex flex-col items-start text-left h-full overflow-hidden"
+              className="group relative bg-gradient-to-br from-white via-[#FAFBFD] to-[#F2F5F9] p-12 rounded-[3.5rem] border-2 border-[#DF871B]/20 hover:border-[#DF871B] shadow-[0_40px_100px_-15px_rgba(7,19,36,0.5)] hover:shadow-[0_100px_200px_-20px_rgba(7,19,36,0.7),0_0_100px_rgba(223,135,27,0.3)] transition-all duration-500 flex flex-col items-start text-left h-full overflow-hidden"
             >
               {/* Gold Top Accent Line */}
-              <div className="absolute top-0 left-0 right-0 h-[10px] bg-gradient-to-r from-transparent via-[#c5a059] to-transparent opacity-40 group-hover:opacity-100 group-hover:h-[15px] transition-all duration-500" />
+              <div className="absolute top-0 left-0 right-0 h-[10px] bg-gradient-to-r from-transparent via-[#DF871B] to-transparent opacity-50 group-hover:opacity-100 group-hover:h-[15px] transition-all duration-500" />
               
               {/* Inner Luminous Glow */}
-              <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_0%,rgba(197,160,89,0.1),transparent_70%)] opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
+              <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_0%,rgba(223,135,27,0.12),transparent_70%)] opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
 
               <div className="relative z-10 w-full">
-                <div className="mb-10 w-20 h-20 rounded-[2rem] bg-[#0a2540]/5 flex items-center justify-center text-[#c5a059] group-hover:bg-[#c5a059] group-hover:text-white transition-all duration-500 transform group-hover:rotate-[10deg] group-hover:scale-110 shadow-inner">
+                <div className="mb-10 w-20 h-20 rounded-[2rem] bg-[#0D1E3A]/5 flex items-center justify-center text-[#DF871B] group-hover:bg-[#DF871B] group-hover:text-white transition-all duration-500 transform group-hover:rotate-[10deg] group-hover:scale-110 shadow-inner">
                   {service.icon}
                 </div>
                 
                 <div className="space-y-2 mb-8">
-                  <span className="text-[10px] font-black uppercase tracking-[0.4em] text-[#c5a059] opacity-60">{service.subtitle}</span>
-                  <h3 className="text-3xl font-black text-[#0a2540] tracking-tighter leading-[1.1] group-hover:text-[#c5a059] transition-colors duration-500">
+                  <span className="text-[10px] font-black uppercase tracking-[0.4em] text-[#DF871B] opacity-80">{service.subtitle}</span>
+                  <h3 className="text-3xl font-black text-[#0D1E3A] tracking-tighter leading-[1.1] group-hover:text-[#DF871B] transition-colors duration-500">
                     {service.title}
                   </h3>
                 </div>
@@ -978,9 +1012,9 @@ const Services = () => {
                       initial={{ opacity: 0, x: -10 }}
                       whileInView={{ opacity: 1, x: 0 }}
                       transition={{ delay: 0.5 + (i * 0.1) }}
-                      className="flex items-start gap-4 text-[#0a2540]/70 group-hover:text-[#0a2540] transition-colors duration-500"
+                      className="flex items-start gap-4 text-[#0D1E3A]/75 group-hover:text-[#0D1E3A] transition-colors duration-500"
                     >
-                      <div className="w-1.5 h-1.5 rounded-full bg-[#c5a059] mt-1.5 flex-shrink-0 shadow-[0_0_10px_rgba(197,160,89,0.8)]" />
+                      <div className="w-1.5 h-1.5 rounded-full bg-[#DF871B] mt-1.5 flex-shrink-0 shadow-[0_0_10px_rgba(223,135,27,0.8)]" />
                       <span className="text-sm font-medium leading-relaxed">{item}</span>
                     </motion.li>
                   ))}
@@ -988,7 +1022,7 @@ const Services = () => {
               </div>
 
               {/* Decorative Corner Accent */}
-              <div className="absolute -bottom-10 -right-10 w-40 h-40 bg-[#c5a059]/5 rounded-full blur-3xl group-hover:bg-[#c5a059]/15 transition-all duration-700" />
+              <div className="absolute -bottom-10 -right-10 w-40 h-40 bg-[#DF871B]/5 rounded-full blur-3xl group-hover:bg-[#DF871B]/15 transition-all duration-700" />
             </motion.div>
           ))}
         </motion.div>
@@ -999,7 +1033,7 @@ const Services = () => {
 
 const WhyUs = () => {
   return (
-    <section id="nosotros" className="py-32 bg-white overflow-hidden">
+    <section id="nosotros" className="py-32 bg-[#F4F6FA] overflow-hidden">
       <div className="max-w-5xl mx-auto px-6">
         <div className="flex flex-col lg:flex-row items-center gap-16 md:gap-20">
           <motion.div 
@@ -1009,12 +1043,12 @@ const WhyUs = () => {
             transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
             className="lg:w-1/2 relative"
           >
-            <div className="absolute -top-10 -left-10 w-40 h-40 bg-[#c5a059]/5 rounded-full blur-3xl" />
-            <div className="aspect-[4/5] rounded-[3rem] overflow-hidden shadow-2xl relative z-10">
+            <div className="absolute -top-10 -left-10 w-40 h-40 bg-[#DF871B]/10 rounded-full blur-3xl" />
+            <div className="aspect-[4/5] rounded-[3rem] overflow-hidden shadow-2xl relative z-10 border border-[#0D1E3A]/10">
               <img 
-                src="https://images.unsplash.com/photo-1505664194779-8beaceb93744?auto=format&fit=crop&q=80&w=1000" 
-                alt="Team" 
-                className="w-full h-full object-cover"
+                src={teamImg} 
+                alt="Equipo ASI Consultores - Abogados" 
+                className="w-full h-full object-cover object-center"
                 referrerPolicy="no-referrer"
               />
             </div>
@@ -1036,10 +1070,10 @@ const WhyUs = () => {
                   ease: "easeInOut"
                 }
               }}
-              className="absolute -bottom-8 -right-8 glass p-8 md:p-10 rounded-[3rem] border border-white/20 shadow-[0_20px_50px_-15px_rgba(0,0,0,0.15)] hidden sm:block z-20"
+              className="absolute -bottom-8 -right-8 glass p-8 md:p-10 rounded-[3rem] border border-[#0D1E3A]/10 shadow-[0_20px_50px_-15px_rgba(11,26,48,0.15)] hidden sm:block z-20"
             >
-              <p className="text-5xl font-bold text-[#1d1d1f] mb-1 tracking-tighter">+15</p>
-              <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-[#c5a059]">Años de Experiencia</p>
+              <p className="text-5xl font-bold text-[#0D1E3A] mb-1 tracking-tighter">+15</p>
+              <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-[#DF871B]">Años de Experiencia</p>
             </motion.div>
           </motion.div>
 
@@ -1050,11 +1084,11 @@ const WhyUs = () => {
             transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
             className="lg:w-1/2"
           >
-            <span className="text-sm font-semibold text-[#c5a059] uppercase tracking-[0.2em] mb-6 block">Sobre Nosotros</span>
-            <h2 className="text-4xl md:text-5xl font-bold text-[#1d1d1f] mb-8 leading-[1.1] tracking-tight text-balance">
-              Un equipo comprometido con la <span className="italic font-serif text-[#c5a059]">justicia</span> y la ética profesional
+            <span className="text-sm font-semibold text-[#DF871B] uppercase tracking-[0.2em] mb-6 block">Sobre Nosotros</span>
+            <h2 className="text-4xl md:text-5xl font-bold text-[#0D1E3A] mb-8 leading-[1.1] tracking-tight text-balance">
+              Un equipo comprometido con la <span className="italic font-serif text-[#DF871B]">justicia</span> y la ética profesional
             </h2>
-            <p className="text-xl text-gray-500 mb-10 leading-relaxed font-light text-balance">
+            <p className="text-xl text-slate-600 mb-10 leading-relaxed font-light text-balance">
               En ASI Consultores, entendemos que cada caso es único. Por eso, ofrecemos un trato personalizado y directo, manteniendo informados a nuestros clientes en todo momento.
             </p>
             
@@ -1073,10 +1107,10 @@ const WhyUs = () => {
                   transition={{ delay: 0.2 + (i * 0.1) }}
                   className="flex items-center gap-4 group"
                 >
-                  <div className="w-10 h-10 rounded-full bg-[#f5f5f7] flex items-center justify-center group-hover:bg-[#c5a059]/10 transition-colors">
-                    <CheckCircle2 className="text-[#c5a059] w-5 h-5" />
+                  <div className="w-10 h-10 rounded-full bg-white flex items-center justify-center group-hover:bg-[#DF871B]/15 transition-colors border border-[#0D1E3A]/5 shadow-sm">
+                    <CheckCircle2 className="text-[#DF871B] w-5 h-5" />
                   </div>
-                  <span className="text-[#1d1d1f] font-medium text-sm">{item}</span>
+                  <span className="text-[#0D1E3A] font-medium text-sm">{item}</span>
                 </motion.div>
               ))}
             </div>
@@ -1103,13 +1137,13 @@ const Clients = () => {
   ];
 
   return (
-    <section className="py-32 bg-[#f5f5f7] overflow-hidden">
+    <section className="py-32 bg-[#F4F6FA] overflow-hidden">
       <div className="max-w-screen-xl mx-auto px-6 mb-24 text-center">
         <motion.h2 
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="text-4xl md:text-5xl font-semibold tracking-tight text-[#1d1d1f] mb-6"
+          className="text-4xl md:text-5xl font-semibold tracking-tight text-[#0D1E3A] mb-6"
         >
           Respaldo legal para los líderes de Colombia.
         </motion.h2>
@@ -1118,16 +1152,16 @@ const Clients = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ delay: 0.1 }}
-          className="text-xl text-[#86868b] max-w-2xl mx-auto"
+          className="text-xl text-slate-500 max-w-2xl mx-auto"
         >
           Acompañamos a las empresas más emblemáticas del país en sus desafíos legales más complejos, asegurando su crecimiento y cumplimiento en el mercado nacional.
         </motion.p>
       </div>
       
       <div className="relative">
-        {/* Apple-style Gradient Masks for extreme smoothness */}
-        <div className="absolute inset-y-0 left-0 w-64 bg-gradient-to-r from-[#f5f5f7] via-[#f5f5f7]/80 to-transparent z-10" />
-        <div className="absolute inset-y-0 right-0 w-64 bg-gradient-to-l from-[#f5f5f7] via-[#f5f5f7]/80 to-transparent z-10" />
+        {/* Gradient Masks */}
+        <div className="absolute inset-y-0 left-0 w-64 bg-gradient-to-r from-[#F4F6FA] via-[#F4F6FA]/80 to-transparent z-10" />
+        <div className="absolute inset-y-0 right-0 w-64 bg-gradient-to-l from-[#F4F6FA] via-[#F4F6FA]/80 to-transparent z-10" />
         
         <div className="flex animate-marquee whitespace-nowrap items-center py-6 w-max">
           {[...Array(2)].map((_, i) => (
@@ -1136,7 +1170,7 @@ const Clients = () => {
                 <motion.div 
                   key={`${i}-${index}`} 
                   whileHover={{ y: -6, scale: 1.03 }}
-                  className="flex items-center justify-center w-72 h-44 bg-white rounded-[2.5rem] shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-white/20 transition-all duration-500 cursor-default group overflow-hidden"
+                  className="flex items-center justify-center w-72 h-44 bg-white rounded-[2.5rem] shadow-[0_8px_30px_rgba(11,26,48,0.06)] border border-[#0D1E3A]/10 transition-all duration-500 cursor-default group overflow-hidden"
                 >
                   <img 
                     src={logo} 
@@ -1148,7 +1182,7 @@ const Clients = () => {
                       const parent = (e.target as HTMLImageElement).parentElement;
                       if (parent) {
                         const span = document.createElement('span');
-                        span.className = "text-xl font-semibold tracking-tight text-[#1d1d1f]/30 uppercase";
+                        span.className = "text-xl font-semibold tracking-tight text-[#0D1E3A]/30 uppercase";
                         span.innerText = `CLIENTE ${index + 1}`;
                         parent.appendChild(span);
                       }
@@ -1165,167 +1199,263 @@ const Clients = () => {
 };
 
 const Contact = () => {
-  const whatsappMessage = encodeURIComponent("Hola ASI Consultores, vengo de su página web y quisiera recibir asesoría legal.");
+  const whatsappMessage = encodeURIComponent("Hola ASI Consultores Abogados, vengo de su página web y quisiera recibir asesoría legal.");
   
   const contacts = [
     { 
-      type: 'whatsapp',
-      name: 'Línea Directa 1',
-      number: '+57 320 946 1837',
-      link: `https://wa.me/573209461837?text=${whatsappMessage}`
+      name: 'Línea Directa 1 - Asesoría Urgente', 
+      number: '+57 320 946 1837', 
+      link: `https://wa.me/573209461837?text=${whatsappMessage}`,
+      badge: 'Atención Prioritaria',
+      role: 'Director Jurídico'
     },
     { 
-      type: 'whatsapp',
-      name: 'Línea Directa 2',
-      number: '+57 302 789 2614',
-      link: `https://wa.me/573027892614?text=${whatsappMessage}`
+      name: 'Línea Directa 2 - Recepción de Casos', 
+      number: '+57 302 789 2614', 
+      link: `https://wa.me/573027892614?text=${whatsappMessage}`,
+      badge: 'Disponible Ahora',
+      role: 'Coordinación Legal'
     }
   ];
 
   const emails = [
-    'albertomurcia@asiabogados.com',
-    'info@asiabogados.com',
-    'direccion@asiabogados.com'
+    { address: 'albertomurcia@asiabogados.com', label: 'Dirección General & Socios' },
+    { address: 'info@asiabogados.com', label: 'Consultas Generales y Citas' },
+    { address: 'direccion@asiabogados.com', label: 'Secretaría y Documentación' }
   ];
 
   return (
-    <section id="contacto" className="py-32 bg-[#1d1d1f] text-white">
-      <div className="max-w-5xl mx-auto px-6">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 md:gap-24 items-center">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
-          >
-            <span className="text-sm font-semibold text-[#c5a059] uppercase tracking-[0.2em] mb-6 block">Contacto Inmediato</span>
-            <h2 className="text-5xl md:text-6xl font-bold mb-8 tracking-tighter leading-[1.1] text-balance">
-              Hable con un <br />
-              <span className="text-[#c5a059]">abogado ahora.</span>
-            </h2>
-            <p className="text-xl text-gray-400 mb-12 font-light leading-relaxed text-balance">
-              Elija su canal preferido. Estamos listos para atender su consulta con la urgencia y profesionalismo que su caso requiere.
+    <section id="contacto" className="py-28 bg-[#09182E] text-white relative">
+      {/* Background radial atmosphere */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-[#DF871B]/5 rounded-full blur-[120px] pointer-events-none" />
+
+      <div className="max-w-6xl mx-auto px-6 space-y-16 relative z-10">
+        
+        {/* Main Legal Contact Form Section */}
+        <motion.div
+          initial={{ opacity: 0, y: 25 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+        >
+          <LegalContactForm firmName="ASI Consultores Abogados" defaultPhone="573209461837" />
+        </motion.div>
+
+        {/* Direct Channels & Offices Section Header */}
+        <div className="pt-10 border-t border-white/10">
+          <div className="text-center max-w-2xl mx-auto mb-12">
+            <span className="text-xs font-bold text-[#DF871B] uppercase tracking-[0.25em] block mb-2">
+              Canales Institucionales
+            </span>
+            <h3 className="text-3xl md:text-4xl font-extrabold text-white tracking-tight">
+              Otras Formas de Contacto Directo
+            </h3>
+            <p className="text-slate-300 text-sm mt-2 leading-relaxed">
+              Consulte nuestras líneas directas, correos por departamento o visítenos en nuestra sede principal.
             </p>
+          </div>
+
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-stretch">
             
-            <div className="space-y-6">
-              {contacts.map((contact, i) => (
-                <motion.a 
-                  key={i}
-                  href={contact.link}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  initial={{ opacity: 0, x: -20 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: i * 0.1 }}
-                  className="flex items-center gap-6 group p-6 rounded-[2rem] bg-white/5 border border-white/5 hover:bg-[#25D366]/10 hover:border-[#25D366]/30 transition-all duration-500"
-                >
-                  <div className="w-14 h-14 rounded-2xl bg-[#25D366]/20 flex items-center justify-center text-[#25D366] group-hover:scale-110 transition-transform duration-500">
-                    <MessageCircle className="w-7 h-7" />
-                  </div>
-                  <div className="flex-1 min-w-0">
-                    <p className="text-[10px] text-gray-500 uppercase tracking-[0.2em] mb-1 font-bold truncate">{contact.name}</p>
-                    <p className="text-lg md:text-xl font-medium tracking-tight group-hover:text-[#25D366] transition-colors whitespace-nowrap">
-                      WhatsApp {contact.number}
-                    </p>
-                  </div>
-                  <ArrowRight className="w-5 h-5 ml-auto opacity-0 group-hover:opacity-100 group-hover:translate-x-2 transition-all text-[#25D366]" />
-                </motion.a>
-              ))}
-
-              <div className="pt-8 flex gap-6">
-                <motion.a
-                  href="https://www.instagram.com/asiconsultores/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  initial={{ opacity: 0, scale: 0.8 }}
-                  whileInView={{ opacity: 1, scale: 1 }}
-                  whileHover={{ scale: 1.1, y: -5 }}
-                  className="w-16 h-16 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center text-white hover:bg-[#c5a059] hover:border-[#c5a059] transition-all duration-500"
-                >
-                  <Instagram className="w-8 h-8" />
-                </motion.a>
-                <motion.a
-                  href="https://www.linkedin.com/in/asi-consultores-ltda-35a786370/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  initial={{ opacity: 0, scale: 0.8 }}
-                  whileInView={{ opacity: 1, scale: 1 }}
-                  whileHover={{ scale: 1.1, y: -5 }}
-                  className="w-16 h-16 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center text-white hover:bg-[#c5a059] hover:border-[#c5a059] transition-all duration-500"
-                >
-                  <Linkedin className="w-8 h-8" />
-                </motion.a>
-              </div>
-            </div>
-          </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0, scale: 0.98 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
-            className="glass-dark p-8 md:p-12 rounded-[3rem] border border-white/5 shadow-2xl"
-          >
-            <div className="space-y-8">
+            {/* Column 1: WhatsApp & Social Networks */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8 }}
+              className="p-8 rounded-[2rem] bg-[#0D1E3A] border border-[#DF871B]/30 shadow-2xl flex flex-col justify-between space-y-6"
+            >
               <div>
-                <h3 className="text-2xl font-semibold mb-6 tracking-tight">Canales de Correo</h3>
+                <div className="flex items-center justify-between mb-6 pb-4 border-b border-white/10">
+                  <div className="flex items-center gap-2">
+                    <div className="w-2.5 h-2.5 rounded-full bg-[#25D366] animate-pulse" />
+                    <span className="text-xs font-bold text-slate-200 uppercase tracking-wider">
+                      Líneas de Atención Telefónica y WhatsApp
+                    </span>
+                  </div>
+                  <span className="text-[10px] text-[#25D366] bg-[#25D366]/15 border border-[#25D366]/30 px-2.5 py-1 rounded-full font-bold">
+                    Respuesta Inmediata
+                  </span>
+                </div>
+
                 <div className="space-y-4">
-                  {emails.map((email, i) => (
-                    <motion.a
+                  {contacts.map((contact, i) => (
+                    <motion.a 
                       key={i}
-                      href={`mailto:${email}`}
-                      whileHover={{ x: 10 }}
-                      className="flex items-center gap-4 p-4 rounded-2xl hover:bg-white/5 transition-all group"
+                      href={contact.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      initial={{ opacity: 0, y: 10 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ delay: i * 0.1 }}
+                      className="group p-5 rounded-2xl bg-[#071324] border border-white/10 hover:border-[#25D366]/50 hover:bg-[#071324]/80 transition-all duration-300 block relative overflow-hidden"
                     >
-                      <div className="w-10 h-10 rounded-xl bg-white/5 flex items-center justify-center text-[#c5a059] group-hover:bg-[#c5a059] group-hover:text-black transition-all">
-                        <Mail className="w-5 h-5" />
+                      <div className="flex items-center justify-between mb-2">
+                        <span className="text-[11px] font-bold uppercase tracking-widest text-[#DF871B]">
+                          {contact.badge}
+                        </span>
+                        <span className="text-xs text-slate-400 font-medium">{contact.role}</span>
                       </div>
-                      <span className="text-gray-300 group-hover:text-white transition-colors break-all">{email}</span>
+
+                      <div className="flex items-center gap-4">
+                        <div className="w-12 h-12 rounded-xl bg-[#25D366]/20 border border-[#25D366]/30 flex items-center justify-center text-[#25D366] group-hover:scale-110 transition-transform">
+                          <MessageCircle className="w-6 h-6 fill-[#25D366]/20" />
+                        </div>
+                        <div>
+                          <p className="text-sm font-bold text-white group-hover:text-[#25D366] transition-colors">
+                            {contact.name}
+                          </p>
+                          <p className="text-base font-extrabold text-slate-200 font-mono">
+                            {contact.number}
+                          </p>
+                        </div>
+                        <div className="ml-auto flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-[#25D366]/10 border border-[#25D366]/30 text-[#25D366] text-xs font-bold group-hover:bg-[#25D366] group-hover:text-white transition-all">
+                          <span>Chat</span>
+                          <ArrowRight className="w-3.5 h-3.5" />
+                        </div>
+                      </div>
                     </motion.a>
                   ))}
                 </div>
               </div>
 
-              <div className="pt-8 border-t border-white/5 space-y-6">
-                <div className="flex items-start gap-4 text-gray-300">
-                  <MapPin className="w-6 h-6 text-[#c5a059] shrink-0 mt-1" />
-                  <div>
-                    <p className="text-sm font-bold text-[#c5a059] uppercase tracking-wider mb-1">Nuestras Oficinas</p>
-                    <p className="text-lg leading-snug">
-                      Edificio Offices Center Chia Elite <br />
-                      Cl. 11 #6A-56 oficina 609 <br />
-                      Chía, Cundinamarca
-                    </p>
-                  </div>
+              {/* Social Media Badges */}
+              <div className="pt-6 border-t border-white/10">
+                <span className="text-xs font-bold text-slate-400 uppercase tracking-wider block mb-3">
+                  Síganos en Redes Sociales
+                </span>
+                <div className="grid grid-cols-2 gap-4">
+                  <motion.a
+                    href="https://www.instagram.com/asiconsultores/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    whileHover={{ scale: 1.02 }}
+                    className="flex items-center gap-3 p-3.5 rounded-xl bg-[#071324] border border-white/10 hover:border-[#DF871B]/50 transition-all group"
+                  >
+                    <div className="w-9 h-9 rounded-lg bg-pink-500/10 border border-pink-500/20 flex items-center justify-center text-pink-400 group-hover:bg-[#DF871B] group-hover:text-white transition-all">
+                      <Instagram className="w-5 h-5" />
+                    </div>
+                    <div>
+                      <p className="text-xs font-bold text-white">Instagram</p>
+                      <p className="text-[11px] text-slate-400">@asiconsultores</p>
+                    </div>
+                  </motion.a>
+
+                  <motion.a
+                    href="https://www.linkedin.com/in/asi-consultores-ltda-35a786370/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    whileHover={{ scale: 1.02 }}
+                    className="flex items-center gap-3 p-3.5 rounded-xl bg-[#071324] border border-white/10 hover:border-[#DF871B]/50 transition-all group"
+                  >
+                    <div className="w-9 h-9 rounded-lg bg-blue-500/10 border border-blue-500/20 flex items-center justify-center text-blue-400 group-hover:bg-[#DF871B] group-hover:text-white transition-all">
+                      <Linkedin className="w-5 h-5" />
+                    </div>
+                    <div>
+                      <p className="text-xs font-bold text-white">LinkedIn</p>
+                      <p className="text-[11px] text-slate-400">ASI Consultores</p>
+                    </div>
+                  </motion.a>
                 </div>
-                
-                <div className="relative rounded-2xl overflow-hidden aspect-video border border-white/10 group">
+              </div>
+            </motion.div>
+
+            {/* Column 2: Email & Physical Headquarters */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8, delay: 0.1 }}
+              className="p-8 rounded-[2rem] bg-[#0D1E3A] border border-[#DF871B]/30 shadow-2xl flex flex-col justify-between space-y-6"
+            >
+              {/* Emails section */}
+              <div>
+                <div className="flex items-center justify-between mb-4 pb-3 border-b border-white/10">
+                  <span className="text-xs font-bold text-slate-200 uppercase tracking-wider">
+                    Correos Electrónicos Institucionales
+                  </span>
+                  <Mail className="w-4 h-4 text-[#DF871B]" />
+                </div>
+
+                <div className="space-y-3">
+                  {emails.map((email, i) => (
+                    <motion.a
+                      key={i}
+                      href={`mailto:${email.address}`}
+                      whileHover={{ x: 4 }}
+                      className="flex items-center justify-between p-3.5 rounded-xl bg-[#071324] border border-white/10 hover:border-[#DF871B]/40 transition-all group"
+                    >
+                      <div className="flex items-center gap-3 min-w-0">
+                        <div className="w-8 h-8 rounded-lg bg-[#DF871B]/15 border border-[#DF871B]/30 flex items-center justify-center text-[#DF871B] group-hover:bg-[#DF871B] group-hover:text-white transition-all shrink-0">
+                          <Mail className="w-4 h-4" />
+                        </div>
+                        <div className="min-w-0">
+                          <p className="text-[10px] text-[#DF871B] font-bold uppercase tracking-wider">{email.label}</p>
+                          <p className="text-xs font-semibold text-slate-200 group-hover:text-white transition-colors truncate">{email.address}</p>
+                        </div>
+                      </div>
+                      <ArrowRight className="w-4 h-4 text-slate-500 group-hover:text-[#DF871B] group-hover:translate-x-1 transition-all shrink-0 ml-2" />
+                    </motion.a>
+                  ))}
+                </div>
+              </div>
+
+              {/* Physical Office showcase */}
+              <div className="pt-6 border-t border-white/10 space-y-4">
+                <div className="flex items-start justify-between">
+                  <div className="flex items-start gap-3">
+                    <MapPin className="w-5 h-5 text-[#DF871B] shrink-0 mt-1" />
+                    <div>
+                      <p className="text-xs font-bold text-[#DF871B] uppercase tracking-wider mb-0.5">Sede Principal Chía Elite</p>
+                      <p className="text-sm font-medium text-white leading-snug">
+                        Edificio Offices Center Chía Elite • Oficina Segundo Piso <br />
+                        <span className="text-slate-300 text-xs font-normal">Cl. 11 #6A-56, Chía, Cundinamarca</span>
+                      </p>
+                    </div>
+                  </div>
+                  <span className="text-[10px] bg-white/5 border border-white/15 px-2.5 py-1 rounded-full text-slate-300 font-medium shrink-0">
+                    Oficina Segundo Piso
+                  </span>
+                </div>
+
+                <div className="relative rounded-xl overflow-hidden aspect-[21/9] border border-white/15 group">
                   <img 
                     src="https://i.ibb.co/JWD5hCRp/1644018208-whatsapp-image-2022-01-29-at-2-50-34-pm.jpg" 
-                    alt="Edificio Offices Center Chia Elite" 
-                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                    alt="Edificio Offices Center Chia Elite - ASI Consultores Abogados" 
+                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                     referrerPolicy="no-referrer"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
-                  <div className="absolute bottom-4 left-4">
-                    <span className="text-[10px] font-bold uppercase tracking-widest text-white/80 bg-black/40 backdrop-blur-md px-3 py-1 rounded-full border border-white/10">
-                      Sede Principal
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#071324] via-transparent to-transparent opacity-90" />
+                  <div className="absolute bottom-3 left-3 right-3 flex items-center justify-between">
+                    <span className="text-[10px] font-bold uppercase tracking-widest text-white bg-[#0B1A30]/80 backdrop-blur-md px-3 py-1 rounded-full border border-white/15">
+                      Chía, Cundinamarca
                     </span>
+                    <a
+                      href="https://maps.google.com/?q=Edificio+Offices+Center+Chia+Elite+Chia"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-[11px] font-bold text-[#DF871B] bg-[#071324] border border-[#DF871B]/40 px-3 py-1 rounded-full hover:bg-[#DF871B] hover:text-white transition-all flex items-center gap-1"
+                    >
+                      <span>Ver Mapa</span>
+                      <ArrowRight className="w-3 h-3" />
+                    </a>
                   </div>
                 </div>
               </div>
-            </div>
-          </motion.div>
+            </motion.div>
+
+          </div>
         </div>
+
       </div>
     </section>
   );
 };
 
-const Footer = () => {
+const Footer = ({ onPageChange }: { onPageChange?: (page: string) => void }) => {
   return (
-    <footer className="bg-black text-white py-20 border-t border-white/5">
+    <footer className="bg-[#071324] text-white py-20 border-t border-white/10">
       <div className="max-w-5xl mx-auto px-6">
         <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-12">
           <div className="flex items-center gap-6">
@@ -1339,32 +1469,65 @@ const Footer = () => {
             </div>
             <div className="flex flex-col">
               <span className="text-2xl font-bold tracking-tighter leading-none uppercase">ASI</span>
-              <span className="text-[10px] font-bold uppercase tracking-[0.3em] text-[#c5a059] mt-1">Consultores</span>
+              <span className="text-[10px] font-bold uppercase tracking-[0.3em] text-[#DF871B] mt-1">Consultores</span>
             </div>
           </div>
           
           <div className="grid grid-cols-2 sm:grid-cols-3 gap-12 md:gap-20">
             <div className="space-y-4">
-              <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-gray-500">Legal</p>
-              <ul className="space-y-2 text-sm text-gray-400">
+              <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-slate-400">Legal</p>
+              <ul className="space-y-2 text-sm text-slate-300">
                 <li><a href="#" className="hover:text-white transition-colors">Aviso Legal</a></li>
                 <li><a href="#" className="hover:text-white transition-colors">Privacidad</a></li>
                 <li><a href="#" className="hover:text-white transition-colors">Cookies</a></li>
               </ul>
             </div>
             <div className="space-y-4">
-              <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-gray-500">Navegación</p>
-              <ul className="space-y-2 text-sm text-gray-400">
-                <li><a href="#inicio" className="hover:text-white transition-colors">Inicio</a></li>
-                <li><a href="#servicios" className="hover:text-white transition-colors">Servicios</a></li>
-                <li><a href="#nosotros" className="hover:text-white transition-colors">Nosotros</a></li>
+              <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-slate-400">Navegación</p>
+              <ul className="space-y-2 text-sm text-slate-300">
+                <li>
+                  <a 
+                    href="#inicio" 
+                    onClick={(e) => { e.preventDefault(); onPageChange?.('home'); window.scrollTo({ top: 0, behavior: 'smooth' }); }}
+                    className="hover:text-white transition-colors"
+                  >
+                    Inicio
+                  </a>
+                </li>
+                <li>
+                  <a 
+                    href="#servicios" 
+                    onClick={(e) => { e.preventDefault(); onPageChange?.('home'); setTimeout(() => document.getElementById('servicios')?.scrollIntoView({ behavior: 'smooth' }), 300); }}
+                    className="hover:text-white transition-colors"
+                  >
+                    Servicios
+                  </a>
+                </li>
+                <li>
+                  <a 
+                    href="#propiedad-horizontal" 
+                    onClick={(e) => { e.preventDefault(); onPageChange?.('propiedad-horizontal'); window.scrollTo({ top: 0, behavior: 'smooth' }); }}
+                    className="hover:text-[#DF871B] transition-colors"
+                  >
+                    Propiedad Horizontal
+                  </a>
+                </li>
+                <li>
+                  <a 
+                    href="#nosotros" 
+                    onClick={(e) => { e.preventDefault(); onPageChange?.('nosotros'); window.scrollTo({ top: 0, behavior: 'smooth' }); }}
+                    className="hover:text-white transition-colors"
+                  >
+                    Nosotros
+                  </a>
+                </li>
               </ul>
             </div>
           </div>
         </div>
         
-        <div className="mt-20 pt-8 border-t border-white/5 flex flex-col sm:flex-row justify-between items-center gap-4">
-          <p className="text-xs text-gray-600 font-medium">
+        <div className="mt-20 pt-8 border-t border-white/10 flex flex-col sm:flex-row justify-between items-center gap-4">
+          <p className="text-xs text-slate-400 font-medium">
             © {new Date().getFullYear()} ASI Consultores. Todos los derechos reservados.
           </p>
           <div className="flex gap-6">
@@ -1372,7 +1535,7 @@ const Footer = () => {
               href="https://www.instagram.com/asiconsultores/" 
               target="_blank" 
               rel="noopener noreferrer"
-              className="text-gray-600 hover:text-[#c5a059] transition-colors"
+              className="text-slate-400 hover:text-[#DF871B] transition-colors"
             >
               <Instagram className="w-5 h-5" />
             </a>
@@ -1380,12 +1543,12 @@ const Footer = () => {
               href="https://www.linkedin.com/in/asi-consultores-ltda-35a786370/" 
               target="_blank" 
               rel="noopener noreferrer"
-              className="text-gray-600 hover:text-[#c5a059] transition-colors"
+              className="text-slate-400 hover:text-[#DF871B] transition-colors"
             >
               <Linkedin className="w-5 h-5" />
             </a>
           </div>
-          <div className="flex gap-6 text-xs text-gray-600">
+          <div className="flex gap-6 text-xs text-slate-400">
           </div>
         </div>
       </div>
@@ -1407,7 +1570,7 @@ export default function App() {
   };
 
   return (
-    <div className="min-h-screen bg-white font-sans selection:bg-[#c5a059] selection:text-white overflow-x-hidden">
+    <div className="min-h-screen bg-[#F4F6FA] font-sans selection:bg-[#DF871B] selection:text-white overflow-x-hidden">
       <Navbar onPageChange={setCurrentPage} currentPage={currentPage} />
       
       <AnimatePresence mode="wait">
@@ -1425,12 +1588,14 @@ export default function App() {
             <Clients />
             <Contact />
           </motion.div>
+        ) : currentPage === 'propiedad-horizontal' ? (
+          <PropiedadHorizontal key="propiedad-horizontal" onContactClick={handleContactClick} />
         ) : (
           <WhoWeAre key="nosotros" onContactClick={handleContactClick} />
         )}
       </AnimatePresence>
 
-      <Footer />
+      <Footer onPageChange={setCurrentPage} />
     </div>
   );
 }
