@@ -15,7 +15,7 @@ import slideExcelencia from './assets/images/excelencia_juridica_slide_178482906
 import slideCompromiso from './assets/images/compromiso_absoluto_slide_1784829077854.jpg';
 import slideEstrategia from './assets/images/vision_estrategica_slide_1784829089858.jpg';
 import slideResultados from './assets/images/resultados_concretos_slide_1784829104025.jpg';
-import slideNacional from './assets/images/presencia_nacional_slide_1784829116979.jpg';
+import slideNacional from './assets/images/presencia_nacional_asi_1784832500000_1784837098194.jpg';
 import { 
   Shield, 
   Gavel, 
