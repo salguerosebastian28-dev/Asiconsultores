@@ -8,6 +8,7 @@ import { motion, AnimatePresence } from 'motion/react';
 import { PropiedadHorizontal } from './components/PropiedadHorizontal';
 import { LegalContactForm } from './components/LegalContactForm';
 import heroBg from './assets/images/asi_lawyers_hero_hd_1784786185757.jpg';
+import modernLawyersHero from './assets/images/modern_lawyers_hero_1784821329117.jpg';
 import teamImg from './assets/images/modern_lawyers_team_1784774266222.jpg';
 import { 
   Shield, 
@@ -711,16 +712,29 @@ const Hero = ({ onFirmClick }: { onFirmClick: () => void }) => {
 
   return (
     <section id="inicio" className="relative min-h-screen flex flex-col justify-center overflow-hidden bg-[#0B1A30]">
-      {/* Background with Atmospheric Overlay */}
-      <div className="absolute inset-0 z-0">
-        <img 
-          src={heroBg} 
-          alt="ASI Consultores - Firma de Abogados" 
-          className="w-full h-full object-cover object-center opacity-45"
+      {/* Background Modern Lawyers Image with Atmospheric Overlay */}
+      <div className="absolute inset-0 z-0 overflow-hidden">
+        <motion.img 
+          initial={{ scale: 1.05, opacity: 0 }}
+          animate={{ 
+            scale: [1.05, 1.14, 1.08, 1.05],
+            x: ['0%', '1.5%', '-1%', '0%'],
+            y: ['0%', '-1%', '1%', '0%'],
+            opacity: 0.55
+          }}
+          transition={{ 
+            scale: { duration: 24, repeat: Infinity, repeatType: 'mirror', ease: 'easeInOut' },
+            x: { duration: 28, repeat: Infinity, repeatType: 'mirror', ease: 'easeInOut' },
+            y: { duration: 20, repeat: Infinity, repeatType: 'mirror', ease: 'easeInOut' },
+            opacity: { duration: 1.5, ease: 'easeOut' }
+          }}
+          src={modernLawyersHero} 
+          alt="ASI Consultores - Firma de Abogados Era Moderna" 
+          className="w-full h-full object-cover object-center filter brightness-95 contrast-105 origin-center"
           referrerPolicy="no-referrer"
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-[#071324]/70 via-[#0B1A30]/40 to-[#0B1A30]" />
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_40%,rgba(223,135,27,0.15),transparent_70%)]" />
+        <div className="absolute inset-0 bg-gradient-to-b from-[#071324]/85 via-[#0B1A30]/60 to-[#0B1A30]" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_40%,rgba(223,135,27,0.22),transparent_70%)]" />
       </div>
 
       <div className="max-w-5xl mx-auto px-6 relative z-10 w-full pt-32 pb-20 text-center">
